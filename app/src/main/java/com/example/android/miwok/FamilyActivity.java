@@ -28,7 +28,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class FamilyActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AudioManager.OnAudioFocusChangeListener {
+public class FamilyActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AudioManager.OnAudioFocusChangeListener, MediaPlayer.OnCompletionListener {
     private MediaPlayer mediaPlayer;
     private AudioManager audioManager;
     ArrayList<Word> words = new ArrayList<Word>(Arrays.asList(
@@ -51,6 +51,7 @@ public class FamilyActivity extends AppCompatActivity implements AdapterView.OnI
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         ListView listView = (ListView) findViewById(R.id.list);
+
         WordAdapter itemsAdapter = new WordAdapter(this, words, R.color.category_family);
         listView.setAdapter(itemsAdapter);
 
@@ -59,9 +60,10 @@ public class FamilyActivity extends AppCompatActivity implements AdapterView.OnI
 
     private void releaseMediaPlayer() {
         if (mediaPlayer != null) {
+            mediaPlayer.stop();
             mediaPlayer.release();
-            mediaPlayer = null;
             audioManager.abandonAudioFocus(this);
+            mediaPlayer = null;
         }
     }
 
@@ -96,17 +98,16 @@ public class FamilyActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         releaseMediaPlayer();
+        mediaPlayer = MediaPlayer.create(this, words.get(position).getAudioResourceId());
         int result = audioManager.requestAudioFocus(this, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
         if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-
-            mediaPlayer = MediaPlayer.create(this, words.get(position).getAudioResourceId());
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    releaseMediaPlayer();
-                }
-            });
+            mediaPlayer.setOnCompletionListener(this);
             mediaPlayer.start();
         }
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        releaseMediaPlayer();
     }
 }
