@@ -1,39 +1,39 @@
 package com.example.android.miwok;
 
 public class Word {
-    private String mMiwokTranslation;
-    private String mDefaultTranslation;
+    private int mMiwokTranslationId;
+    private int mDefaultTranslationId;
     private int mAudioResourceId;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
-        mMiwokTranslation = miwokTranslation;
-        mDefaultTranslation = defaultTranslation;
+    public Word(int defaultTranslationId, int miwokTranslationId, int imageResourceId, int audioResourceId) {
+        mMiwokTranslationId = miwokTranslationId;
+        mDefaultTranslationId = defaultTranslationId;
         mImageResourceId = imageResourceId;
         mAudioResourceId = audioResourceId;
     }
 
-    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
-        mMiwokTranslation = miwokTranslation;
-        mDefaultTranslation = defaultTranslation;
+    public Word(int defaultTranslationId, int miwokTranslationId, int audioResourceId) {
+        mMiwokTranslationId = miwokTranslationId;
+        mDefaultTranslationId = defaultTranslationId;
         mAudioResourceId = audioResourceId;
     }
 
-    public void setMiwokTranslation(String miwokTranslation) {
-        this.mMiwokTranslation = miwokTranslation;
+    public void setMiwokTranslationId(int miwokTranslationId) {
+        mMiwokTranslationId = miwokTranslationId;
     }
 
-    public String getMiwokTranslation() {
-        return mMiwokTranslation;
+    public int getMiwokTranslationId() {
+        return mMiwokTranslationId;
     }
 
-    public void setDefaultTranslation(String defaultTranslation) {
-        this.mDefaultTranslation = defaultTranslation;
+    public void setDefaultTranslationId(int defaultTranslationId) {
+        mDefaultTranslationId = defaultTranslationId;
     }
 
-    public String getDefaultTranslation() {
-        return mDefaultTranslation;
+    public int getDefaultTranslationId() {
+        return mDefaultTranslationId;
     }
 
     public int getImageResourceId() {

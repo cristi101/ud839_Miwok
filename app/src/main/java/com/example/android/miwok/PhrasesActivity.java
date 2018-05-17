@@ -32,16 +32,16 @@ public class PhrasesActivity extends AppCompatActivity implements AdapterView.On
     private MediaPlayer mediaPlayer;
     private AudioManager audioManager;
     ArrayList<Word> words = new ArrayList<Word>(Arrays.asList(
-            new Word("Where are you going?", "minto wuksus", R.raw.phrase_where_are_you_going),
-            new Word("What is your name?", "tinnә oyaase'nә", R.raw.phrase_what_is_your_name),
-            new Word("My name is...", "oyaaset...", R.raw.phrase_my_name_is),
-            new Word("How are you feeling?", "michәksәs?", R.raw.phrase_how_are_you_feeling),
-            new Word("I’m feeling good.", "kuchi achit", R.raw.phrase_im_feeling_good),
-            new Word("Are you coming?", "әәnәs'aa?", R.raw.phrase_are_you_coming),
-            new Word("Yes, I’m coming.", "hәә’ әәnәm", R.raw.phrase_yes_im_coming),
-            new Word("I’m coming.", "әәnәm", R.raw.phrase_im_coming),
-            new Word("Let’s go.", "yoowutis", R.raw.phrase_lets_go),
-            new Word("Come here.", "әnni'nem", R.raw.phrase_come_here)));
+            new Word(R.string.phrase_where_are_you_going, R.string.miwok_phrase_where_are_you_going, R.raw.phrase_where_are_you_going),
+            new Word(R.string.phrase_what_is_your_name, R.string.miwok_phrase_what_is_your_name, R.raw.phrase_what_is_your_name),
+            new Word(R.string.phrase_my_name_is, R.string.miwok_phrase_my_name_is, R.raw.phrase_my_name_is),
+            new Word(R.string.phrase_how_are_you_feeling, R.string.miwok_phrase_how_are_you_feeling, R.raw.phrase_how_are_you_feeling),
+            new Word(R.string.phrase_im_feeling_good, R.string.miwok_phrase_im_feeling_good, R.raw.phrase_im_feeling_good),
+            new Word(R.string.phrase_are_you_coming, R.string.miwok_phrase_are_you_coming, R.raw.phrase_are_you_coming),
+            new Word(R.string.phrase_yes_im_coming, R.string.miwok_phrase_yes_im_coming, R.raw.phrase_yes_im_coming),
+            new Word(R.string.phrase_im_coming, R.string.miwok_phrase_im_coming, R.raw.phrase_im_coming),
+            new Word(R.string.phrase_lets_go, R.string.miwok_phrase_lets_go, R.raw.phrase_lets_go),
+            new Word(R.string.phrase_come_here, R.string.miwok_phrase_come_here, R.raw.phrase_come_here)));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

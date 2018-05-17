@@ -32,16 +32,16 @@ public class NumbersActivity extends AppCompatActivity implements AdapterView.On
     private MediaPlayer mediaPlayer;
     private AudioManager audioManager;
     private ArrayList<Word> words = new ArrayList<Word>(Arrays.asList(
-            new Word("one", "lutti", R.drawable.number_one, R.raw.number_one),
-            new Word("two", "otiiko", R.drawable.number_two, R.raw.number_two),
-            new Word("three", "tolookosu", R.drawable.number_three, R.raw.number_three),
-            new Word("four", "oyyisa", R.drawable.number_four, R.raw.number_four),
-            new Word("five", "massokka", R.drawable.number_five, R.raw.number_five),
-            new Word("six", "temmokka", R.drawable.number_six, R.raw.number_six),
-            new Word("seven", "kenekaku", R.drawable.number_seven, R.raw.number_seven),
-            new Word("eight", "kawinta", R.drawable.number_eight, R.raw.number_eight),
-            new Word("nine", "wo'e", R.drawable.number_nine, R.raw.number_nine),
-            new Word("ten", "na'aacha", R.drawable.number_ten, R.raw.number_ten)));
+            new Word(R.string.number_one, R.string.miwok_number_one, R.drawable.number_one, R.raw.number_one),
+            new Word(R.string.number_two, R.string.miwok_number_two, R.drawable.number_two, R.raw.number_two),
+            new Word(R.string.number_three, R.string.miwok_number_three, R.drawable.number_three, R.raw.number_three),
+            new Word(R.string.number_four, R.string.miwok_number_four, R.drawable.number_four, R.raw.number_four),
+            new Word(R.string.number_five, R.string.miwok_number_five, R.drawable.number_five, R.raw.number_five),
+            new Word(R.string.number_six, R.string.miwok_number_six, R.drawable.number_six, R.raw.number_six),
+            new Word(R.string.number_seven, R.string.miwok_number_seven, R.drawable.number_seven, R.raw.number_seven),
+            new Word(R.string.number_eight, R.string.miwok_number_eight, R.drawable.number_eight, R.raw.number_eight),
+            new Word(R.string.number_nine, R.string.miwok_number_nine, R.drawable.number_nine, R.raw.number_nine),
+            new Word(R.string.number_ten, R.string.miwok_number_ten, R.drawable.number_ten, R.raw.number_ten)));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
