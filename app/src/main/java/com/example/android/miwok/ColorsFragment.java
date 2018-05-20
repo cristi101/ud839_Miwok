@@ -1,13 +1,7 @@
 package com.example.android.miwok;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,8 +9,7 @@ import java.util.Arrays;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ColorsFragment extends Fragment implements AdapterView.OnItemClickListener {
-    private SoundPlayer soundPlayer;
+public class ColorsFragment extends CategoryFragment {
 
     ArrayList<Word> words = new ArrayList<Word>(Arrays.asList(
             new Word(R.string.color_red, R.string.miwok_color_red, R.drawable.color_red, R.raw.color_red),
@@ -34,37 +27,12 @@ public class ColorsFragment extends Fragment implements AdapterView.OnItemClickL
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.word_list, container, false);
-
-        ListView listView = (ListView) rootView.findViewById(R.id.list);
-
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_colors);
-        listView.setAdapter(itemsAdapter);
-
-        listView.setOnItemClickListener(this);
-        return rootView;
-    }
-
-    private void releaseMediaPlayer() {
-        if (soundPlayer != null) {
-            soundPlayer.releaseMediaPlayer();
-            soundPlayer = null;
-        }
+    protected int getColorId() {
+        return R.color.category_colors;
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-        releaseMediaPlayer();
+    protected ArrayList<Word> getWords() {
+        return words;
     }
-
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        releaseMediaPlayer();
-        soundPlayer = new SoundPlayer(getActivity(), words.get(position).getAudioResourceId());
-    }
-
 }
