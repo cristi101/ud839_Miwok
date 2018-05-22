@@ -7,9 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class CategoryAdapter extends FragmentPagerAdapter {
-    private Fragment[] fragments = {new NumbersFragment(), new FamilyFragment(), new ColorsFragment(), new PhrasesFragment()};
     private int[] categories = {R.string.category_numbers, R.string.category_family, R.string.category_colors, R.string.category_phrases};
-
     private Context mContext;
 
     public CategoryAdapter(FragmentManager fm, Context context) {
@@ -19,17 +17,28 @@ public class CategoryAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return (position < 4) ? fragments[position] : null;
+        switch (position) {
+            case 0:
+                return new NumbersFragment();
+            case 1:
+                return new FamilyFragment();
+            case 2:
+                return new ColorsFragment();
+            case 3:
+                return new PhrasesFragment();
+            default:
+                return null;
+        }
     }
 
     @Override
     public int getCount() {
-        return fragments.length;
+        return 4;
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return position < 4 ? mContext.getString(categories[position]) : null;
+        return (position < 4 && position >= 0) ? mContext.getString(categories[position]) : null;
     }
 }
