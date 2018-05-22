@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
         ViewPager viewPager = findViewById(R.id.view_pager);
-        FragmentPagerAdapter fragmentAdapter = new CathegorAdapter(getSupportFragmentManager(), this);
+        FragmentPagerAdapter fragmentAdapter = new CategoryAdapter(getSupportFragmentManager(), this);
         viewPager.setAdapter(fragmentAdapter);
     }
 }

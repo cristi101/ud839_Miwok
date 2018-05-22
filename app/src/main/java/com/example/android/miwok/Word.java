@@ -28,9 +28,6 @@ public class Word {
         return mMiwokTranslationId;
     }
 
-    public void setDefaultTranslationId(int defaultTranslationId) {
-        mDefaultTranslationId = defaultTranslationId;
-    }
 
     public int getDefaultTranslationId() {
         return mDefaultTranslationId;
@@ -38,10 +35,6 @@ public class Word {
 
     public int getImageResourceId() {
         return mImageResourceId;
-    }
-
-    public void setImageResourceId(int imageResourceId) {
-        this.mImageResourceId = imageResourceId;
     }
 
     public boolean hasImage() {
